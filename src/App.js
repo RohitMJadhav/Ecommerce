@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { lazy, Suspense } from "react";
+import  ReactDOM  from "react-dom/client";
+import "../index.css";
+import Products from "./pages/Products";
+import Contact from "./pages/Contact";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+// import RestaurantMenu from "./components/RestaurantMenu";
+import Header from "./components/Header";
+
+import {
+    createBrowserRouter,
+    RouterProvider,
+    Outlet
+  } from "react-router-dom";
+
+
+const AppLayout=()=>{
+    return(
+        <>
+       <Header/>
+       <Outlet/>
+        </>
+    )
 }
 
-export default App;
+const About=lazy(()=>import("./components/About"));
+
+const router = createBrowserRouter([
+    { path: "/",
+    element: <AppLayout />,
+    children:[
+        { path: "/",
+        element:<Products/>
+        }, 
+        { path: "/about",
+          element: <Suspense fallback={<h1>Loading...</h1>}><About /></Suspense>
+        },
+        { path: "/contact",
+        element: <Contact />
+        },
+        // { path: "/restaurants/:restId",
+        // element: <RestaurantMenu />
+        // }
+],
+    errorElement:<Error/>},
+   
+])
+const root=ReactDOM.createRoot(document.getElementById("root"))
+root.render(<RouterProvider router={router}/>)
