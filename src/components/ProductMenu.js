@@ -13,7 +13,7 @@ function ProductMenu() {
   const navigate = useNavigate();
   const productDetails = useProductDetails(productId);
 
-  if (productDetails.length == 0) {
+  if (productDetails.length === 0) {
     return <Loader />;
   }
 

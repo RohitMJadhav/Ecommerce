@@ -14,7 +14,7 @@ const useProductDetails=(productId)=>{
         try {
           const response = await axios.get(Base_URL + `products/${productId}`);
           console.log("response ProductDetails:---", response);
-          if(response.status ==200){
+          if(response.status === 200){
             setProductDetails(response.data);
           }
          
