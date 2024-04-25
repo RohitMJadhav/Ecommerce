@@ -6,6 +6,7 @@ const useProductDetails=(productId)=>{
     const [resProductDetails, setProductDetails]= useState([])
     useEffect(()=>{
         fetchProductDetails()
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     },[])
 
 

@@ -6,7 +6,7 @@ import { RiDiscountPercentFill } from "react-icons/ri";
 import { FaStar } from "react-icons/fa6";
 import Loader from "./Loader";
 import { IoArrowBackCircleSharp } from "react-icons/io5";
-import { Navigate, useNavigate } from "react-router-dom/dist";
+import { useNavigate } from "react-router-dom/dist";
 
 function ProductMenu() {
   const { productId } = useParams();

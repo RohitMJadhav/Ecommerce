@@ -12,7 +12,7 @@ const Products = () => {
     (currentPage - 1) * productsPerPage
   );
 
-  if (products.length == 0) {
+  if (products.length === 0) {
     return <Loader />;
   }
 

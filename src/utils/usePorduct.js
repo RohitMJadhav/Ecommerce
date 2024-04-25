@@ -8,6 +8,7 @@ const useProduct = (limit = 10, skip = 0) => {
 
   useEffect(() => {
     fetchProducts();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [limit, skip]); 
 
   const fetchProducts = async () => {
